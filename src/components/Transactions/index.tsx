@@ -1,11 +1,12 @@
-import { useContext } from "react";
-import { TransactionContext } from "../../TransactionContext";
-import { Container } from "./styles";
+import { useTransactions } from "../../hooks/useTransactions";
+import { Container, ContainerEmpty } from "./styles";
+import { VscEmptyWindow } from "react-icons/vsc";
 
 export const Transactions = () => {
-  const { transactions } = useContext(TransactionContext);
+  const { transactions } = useTransactions();
+  console.log("transactions ", transactions);
 
-  return (
+  return transactions.length > 0 ? (
     <Container>
       <table>
         <thead>
@@ -37,5 +38,10 @@ export const Transactions = () => {
         </tbody>
       </table>
     </Container>
+  ) : (
+    <ContainerEmpty>
+      <h1>Nenhuma informação cadastrada</h1>
+      <VscEmptyWindow />
+    </ContainerEmpty>
   );
 };

@@ -36,3 +36,20 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const ContainerEmpty = styled.div`
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: var(--text-title);
+  }
+
+  svg {
+    font-size: 4rem;
+    color: var(--text-title);
+  }
+`;
